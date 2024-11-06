@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Sign-up Form</title>
+</head>
+<body>
+    <main>
+        <div class="header-container">
+            <!--LOGO-->
+            <div class="logo-container">
+                <img src="./assets/brain-logo.svg" alt="icon of brain used as a logo">
+                <p>Bullet <br>planner</p>
+            </div>
+            <!--IMAGE-->
+            <div class="image-container">
+                <img src="./assets/undraw_sign_up.svg" alt="cartoon image for sign-up">
+                <!--SIGN UP TODAY-->
+                <h2>Get started today!</h2>
+            </div>
+
+        </div>
+        <div class="form-container">
+            <p>Need a little help to keep track of your tasks? Want a little help to organize your life? Sign-up today to get started!</p>
+            <form action="/sign-up-page" method="post">
+                <label for="user-first-name">First name<input type="text" id="user-first-name" name="first-name"></label>
+                <label for="user-last-name">Last name<input type="text" id="user-last-name" name="last-name"></label>
+                <label for="user-email">E-mail<input type="email" id="user-email" name="email"></label>
+                <label for="user-phone">Phone number<input type="tel" id="user-phone" name="phone"></label>
+                <label for="user-password">Password<input type="password" id="user-password" name="password"></label>
+                <label for="user-confirm-password">Confirm password<input type="password" id="user-confirm-password" name="confirm-password"></label>
+
+                <button type="submit">Create account</button>
+
+                <div class="sign-in">
+                    <p>Already have an account ? <input type="submit" value="Log in"></p>
+                </div>
+            </form>
+        </div>
+    </main>
+</body>
+</html>
