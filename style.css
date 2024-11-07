@@ -1,11 +1,9 @@
-/* 1. Use a more-intuitive box-sizing model */
 *,
 *::before,
 *::after {
     box-sizing: border-box;
 }
 
-/* 2. Remove default margin */
 * {
     margin: 0;
     padding: 0;
@@ -18,15 +16,16 @@ html {
 }
 
 body {
-    height: 100%;
-    width: 100%;
-    /* 3. Add accessible line-height */
+    height: 100vh;
+    width: 100vw;
     line-height: 1.5;
-    /* 4. Improve text rendering */
     -webkit-font-smoothing: antialiased;
 }
 
-/* 5. Improve media defaults */
+h1, h2, h3, h4, h5, h6 {
+    font-size: inherit;
+}
+
 img,
 picture,
 video,
@@ -36,7 +35,6 @@ svg {
     max-width: 100%;
 }
 
-/* 6. Inherit fonts for form controls */
 input,
 button,
 textarea,
@@ -46,12 +44,17 @@ select {
 
 /*END OF RESET*/
 :root {
-    --red: #d61d12
+    --red: #d61d12;
+    --light-red: #e26159;
+    --skin-color: #f1a1a4;
+    --hair-color: #2f2e43;
+    --light-grey: #bab7c9;
+    --bg-color: #f1f1f4;
+    font-family: system-ui, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: calc(15px + 0.390625vw);
 }
 
 main {
-    height: 100%;
-    font-size: 16px;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: repeat(2, 1fr);
@@ -65,16 +68,76 @@ main {
 
 .header-container {
     grid-area: "header";
-}
 
-.logo-container {
-    display: flex;
-    height: 120px;
-}
+    & .logo-container {
+        display: flex;
+        margin: 8px 8px 16px 8px;
+    
+        & img {
+            margin: auto 0;
+        }
+    
+        & h1 {
+            margin: auto 0;
+            padding-left: 16px;
+            text-transform: uppercase;
+            font-size: 1.2rem;
+            font-weight: 700;
+            letter-spacing: 0.4ch;
+        }
+    }
+    
+    & .image-container {
+        width: 100vw;
+        
+        & img {
+            margin: 0 auto;
+        }
+        
+    }
 
+}
 .form-container {
     grid-area: "form";
+    border: 2px solid yellow;
+    background-color: var(--bg-color);
+
+    .descr {
+        p {
+        margin: 16px 8px;
+        font-weight: 600;
+        }
+    }
+
+    form {
+        margin-top: 8px;
+        border: 1px solid blue;
+
+        .form-input {
+            background-color: white;
+            margin: 8px;
+
+            .input {
+                display: flex;
+                flex-direction: column;
+                border: 1px solid firebrick;
+            }
+        }
+    }
+    
 }
+
+
+
+@media (min-width: 576px) {
+    main {
+        /* grid-template-columns: repeat(2, 1fr); */
+        /* grid-template-rows: 1fr; */
+        /* grid-template-areas: "image form"; */
+        border: 2px solid aqua;
+    }
+    /* … */
+  }
 
 @media (min-width: 768px) {
     main {
@@ -85,4 +148,23 @@ main {
     }
     /* … */
   }
-  
+
+  @media (min-width: 992px) {
+    main {
+        /* grid-template-columns: repeat(2, 1fr); */
+        /* grid-template-rows: 1fr; */
+        /* grid-template-areas: "image form"; */
+        border: 2px solid yellow;
+    }
+    /* … */
+  }
+
+  @media (min-width: 1200px) {
+    main {
+        /* grid-template-columns: repeat(2, 1fr); */
+        /* grid-template-rows: 1fr; */
+        /* grid-template-areas: "image form"; */
+        border: 2px solid green;
+    }
+    /* … */
+  }
