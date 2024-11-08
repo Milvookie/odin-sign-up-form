@@ -93,12 +93,21 @@ main {
     }
 
     & .image-container {
-        width: 100vw;
+        width: 100%;
 
         & img {
             margin: 0 auto;
         }
 
+    }
+
+    & .descr {
+        background-color: var(--bg-color);
+
+        p {
+            margin: 16px 8px;
+            font-weight: 600;
+        }
     }
 
 }
@@ -107,23 +116,30 @@ main {
     grid-area: "form";
     background-color: var(--bg-color);
 
-    .descr {
-        p {
-            margin: 16px 8px;
-            font-weight: 600;
-        }
+    h2 {
+        background-color: white;
+        padding-top: 12px;
+        padding-left: 12px;
+        text-transform: uppercase;
+        font-size: 1.2rem;
+        letter-spacing: 0.2ch;
     }
 
     form {
 
         .form-input {
             background-color: white;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            gap: 18px;
+            padding: 18px 12px;
 
             .input {
                 display: flex;
                 flex-direction: column;
                 line-height: normal;
-                margin: 18px 12px;
+                min-width: 240px;
 
                 label {
                     text-transform: uppercase;
@@ -159,14 +175,14 @@ main {
         .sign-in {
             margin: 12px;
 
-            p > input {
+            p>input {
                 border: none;
                 background: none;
                 color: var(--red);
                 font-weight: bold;
             }
 
-            p > input:hover {
+            p>input:hover {
                 cursor: pointer;
             }
         }
@@ -178,10 +194,39 @@ main {
 
 @media (min-width: 576px) {
     main {
-        /* grid-template-columns: repeat(2, 1fr); */
-        /* grid-template-rows: 1fr; */
-        /* grid-template-areas: "image form"; */
-        border: 2px solid aqua;
+        .header-container {
+            .descr {
+                p {
+                    margin: 16px 32px;
+                }
+            }
+        }
+
+        .form-container {
+            h2 {
+                padding-left: 32px;
+            }
+
+            form {
+
+                .form-input {
+                    padding: 24px 32px;
+                    display: flex;
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                    gap: 18px 32px;
+                }
+
+                button {
+                    margin: 24px 32px 0 32px;
+                }
+
+                .sign-in {
+                    margin: 32px;
+                }
+            }
+
+        }
     }
 
     /* … */
@@ -189,10 +234,51 @@ main {
 
 @media (min-width: 768px) {
     main {
-        /* grid-template-columns: repeat(2, 1fr); */
-        /* grid-template-rows: 1fr; */
-        /* grid-template-areas: "image form"; */
-        border: 2px solid blue;
+        height: 100vh;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: 1fr;
+        grid-template-areas: "header form";
+        max-height: 100vh;
+    }
+
+    & .header-container {
+        height: 100%;
+        overflow-y: hidden;
+
+        & .image-container {
+            margin-top: 10%;
+        }
+
+        & .descr {
+            background-color: white;
+            margin-top: 5%;
+
+
+            p {
+                margin: 8px 32px 8px 24px !important
+            }
+
+            p:last-child {
+                padding-top: 12px;
+            }
+        }
+    }
+
+    & .form-container {
+        background-color: white;
+
+        h2 {
+            margin-top: 15%;
+            margin-bottom: 12px;
+        }
+
+        form {
+
+            .form-input {
+                background-color: var(--bg-color);
+                border-radius: 10px 0 0 10px;
+            }
+        }
     }
 
     /* … */
@@ -205,17 +291,46 @@ main {
         /* grid-template-areas: "image form"; */
         border: 2px solid yellow;
     }
-
     /* … */
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1180px) {
     main {
         /* grid-template-columns: repeat(2, 1fr); */
         /* grid-template-rows: 1fr; */
         /* grid-template-areas: "image form"; */
         border: 2px solid green;
+
+        & .header-container {
+            & .descr {
+                background-color: white;
+                margin-top: 12px;
+            }
+        }
+
+        & .form-container {
+
+            form {
+                .form-input {
+                    gap: 32px;
+                    padding: 32px;
+                    margin-bottom: 32px;
+                }
+            }
+            
+        }
+
     }
 
     /* … */
+}
+
+/*FORM VALIDATION STYLING*/
+
+input:invalid {
+    border: 1px solid var(--red)
+}
+
+input:valid {
+    border: 1px solid green;
 }

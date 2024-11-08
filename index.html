@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css">
+    <!-- <link rel="stylesheet" href="./layout.css"> -->
     <title>Sign-up Form</title>
 </head>
 
@@ -20,24 +21,26 @@
             <div class="image-container">
                 <img src="./assets/sign-up-image.svg" alt="cartoon image for sign-up">
             </div>
-
-        </div>
-        <div class="form-container">
             <div class="descr">
                 <p>Need a little help to keep track of your tasks? Want a little help to organize your life?</p>
                 <p>Sign-up today to get started!</p>
             </div>
+        </div>
+
+        <div class="form-container">
+
+            <h2>Sign up </h2>
 
             <form action="/sign-up-page" method="post">
 
                 <div class="form-input">
                     <div class="input">
                         <label for="user-first-name">First name</label>
-                        <input type="text" id="user-first-name" name="first-name" required aria-required="true">
+                        <input type="text" minlength="2" id="user-first-name" name="first-name" required aria-required="true">
                     </div>
                     <div class="input">
                         <label for="user-last-name">Last name</label>
-                        <input type="text" id="user-last-name" name="last-name" required aria-required="true">
+                        <input type="text" minlength="2" id="user-last-name" name="last-name" required aria-required="true">
                     </div>
                     <div class="input">
                         <label for="user-email">E-mail</label>
@@ -67,6 +70,8 @@
             </form>
         </div>
     </main>
+
+    <script src="./main.js"></script>
 </body>
 
 </html>
